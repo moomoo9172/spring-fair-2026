@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Fair 2026 — Roberto Clemente Elementary School</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2d4a;
+    --gold: #e8a020;
+    --gold-light: #f5c15a;
+    --green: #2d7a4f;
+    --cream: #fdf8f0;
+    --white: #ffffff;
+    --text: #1a2e3b;
+    --muted: #6b7f8c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(15, 45, 74, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--gold); letter-spacing: 0.5px;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 8px 20px; border-radius: 6px; font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 120px 24px 80px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 50%, rgba(232,160,32,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 30%, rgba(45,122,79,0.1) 0%, transparent 60%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: repeating-linear-gradient(
+      45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%
+    );
+    background-size: 24px 24px;
+  }
+  .hero-content {
+    position: relative; text-align: center; max-width: 780px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,160,32,0.15); border: 1px solid rgba(232,160,32,0.3);
+    color: var(--gold); font-size: 13px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 8px 20px; border-radius: 100px; margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    line-height: 1.05; color: var(--white);
+    margin-bottom: 12px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--gold);
+  }
+  .hero-school {
+    font-size: 16px; color: rgba(255,255,255,0.5);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-desc {
+    font-size: 18px; color: rgba(255,255,255,0.7);
+    line-height: 1.7; max-width: 560px; margin: 0 auto 40px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 32px; flex-wrap: wrap; margin-bottom: 48px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .meta-item {
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.8); font-size: 15px;
+  }
+  .meta-icon {
+    width: 36px; height: 36px; background: rgba(232,160,32,0.2);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .hero-btns {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 32px; border-radius: 8px;
+    font-weight: 700; font-size: 15px; text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,0.25); color: white;
+    padding: 14px 32px; border-radius: 8px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  /* ── STATS STRIP ── */
+  .stats {
+    background: var(--gold);
+    padding: 24px 48px;
+    display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 900; color: var(--navy); line-height: 1;
+  }
+  .stat-label { font-size: 12px; font-weight: 600; color: rgba(15,45,74,0.65); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 96px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--navy); line-height: 1.15; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 17px; color: var(--muted); line-height: 1.7;
+    max-width: 540px; margin-bottom: 56px;
+  }
+
+  /* ── ABOUT ── */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .about-visual {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a4a6e 100%);
+    border-radius: 16px; padding: 48px;
+    display: flex; flex-direction: column; gap: 20px;
+    position: relative; overflow: hidden;
+  }
+  .about-visual::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: rgba(232,160,32,0.15);
+  }
+  .av-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    position: relative;
+  }
+  .av-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: rgba(232,160,32,0.2); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 20px;
+  }
+  .av-text h4 { color: var(--gold); font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .av-text p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.6; }
+  .highlight-box {
+    background: var(--cream); border-left: 4px solid var(--gold);
+    border-radius: 8px; padding: 20px 24px; margin-top: 8px;
+  }
+  .highlight-box p { font-size: 15px; color: var(--text); line-height: 1.7; }
+
+  /* ── SCHEDULE ── */
+  .schedule { background: var(--cream); }
+  .schedule-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+  }
+  .time-block {
+    background: var(--white); border-radius: 12px;
+    padding: 28px; border: 1px solid rgba(15,45,74,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .time-block::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--gold);
+  }
+  .time-block:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,45,74,0.1); }
+  .time-block.green::before { background: var(--green); }
+  .time-block.navy::before { background: var(--navy); }
+  .tb-time {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+  }
+  .time-block.green .tb-time { color: var(--green); }
+  .time-block.navy .tb-time { color: var(--navy); }
+  .tb-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--navy); margin-bottom: 8px;
+  }
+  .tb-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .tb-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+
+  /* ── ACTIVITIES ── */
+  .activities { background: var(--navy); }
+  .activities .section-tag { color: var(--gold-light); }
+  .activities .section-title { color: var(--white); }
+  .activities .section-sub { color: rgba(255,255,255,0.6); }
+  .act-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
+  }
+  .act-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 28px 20px; text-align: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .act-card:hover { background: rgba(232,160,32,0.1); border-color: rgba(232,160,32,0.3); transform: translateY(-3px); }
+  .act-emoji { font-size: 36px; margin-bottom: 12px; display: block; }
+  .act-name { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .act-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+  .ci-item { display: flex; gap: 16px; align-items: flex-start; }
+  .ci-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: rgba(15,45,74,0.08); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .ci-label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .ci-value { font-size: 15px; color: var(--text); font-weight: 500; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 13px; font-weight: 600; color: var(--text); }
+  .form-group input, .form-group textarea, .form-group select {
+    padding: 11px 14px; border: 1.5px solid #dce3ea; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+    background: var(--cream); transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--navy); background: white;
+  }
+  .form-group textarea { min-height: 100px; resize: vertical; }
+  .form-submit {
+    background: var(--navy); color: white; border: none;
+    padding: 14px 32px; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s, transform 0.2s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: #1a4a6e; transform: translateY(-2px); }
+  .form-success {
+    display: none; background: #e8f5ee; border: 1px solid #2d7a4f;
+    border-radius: 8px; padding: 16px 20px;
+    font-size: 14px; color: var(--green); font-weight: 500;
+  }
+
+  /* ── VOLUNTEER CTA ── */
+  .volunteer-cta {
+    background: linear-gradient(135deg, var(--green) 0%, #1f5c38 100%);
+    padding: 80px 24px; text-align: center;
+  }
+  .volunteer-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px); color: white; margin-bottom: 16px;
+  }
+  .volunteer-cta p { font-size: 17px; color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); padding: 32px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; color: var(--gold);
+  }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .stats { gap: 32px; padding: 24px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 64px 20px; }
+    footer { flex-direction: column; text-align: center; padding: 24px; }
+    .hero-meta { gap: 20px; }
+    .hero-btns { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🌸 Spring Fair 2026</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#activities">Activities</a>
+    <a href="#contact">Contact</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4H8YzLF4EXyX5d7jf2A1wwYV3YSBv3Wsigwic2oTz8LFsFw/viewform" target="_blank" class="nav-cta">Volunteer →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌸 Annual School Event</div>
+    <h1>Spring <em>Fair</em><br>2026</h1>
+    <p class="hero-school">Roberto Clemente Elementary School</p>
+    <p class="hero-desc">A day of joy, community, and celebration for our students, families, and neighbours. Join us for a magical spring day!</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-icon">📅</div>
+        <div>
+          <div style="font-weight:600;color:white;">Saturday, June 14, 2026</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);">Save the date</div>
+        </div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-icon">🕗</div>
+        <div>
+          <div style="font-weight:600;color:white;">8:00 AM – 4:00 PM</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);">Rain or shine</div>
+        </div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-icon">📍</div>
+        <div>
+          <div style="font-weight:600;color:white;">School Grounds</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);">3120 Penn Ave, Pittsburgh</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#activities" class="btn-primary">Explore the Fair</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Expected Guests</div></div>
+  <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Activity Booths</div></div>
+  <div class="stat"><div class="stat-num">8hrs</div><div class="stat-label">Of Fun</div></div>
+  <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Admission</div></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-tag">About the Event</div>
+        <h2 class="section-title">A Fair for the Whole Community</h2>
+        <p class="section-sub">The Spring Fair is Roberto Clemente Elementary School's biggest annual celebration — a day that brings together students, families, staff, and the wider Pittsburgh community.</p>
+        <div class="highlight-box">
+          <p>All proceeds from the Spring Fair go directly toward funding new classroom resources, playground equipment, and student enrichment programmes for the 2026–2027 school year.</p>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="av-item">
+          <div class="av-icon">🎓</div>
+          <div class="av-text">
+            <h4>Student Showcases</h4>
+            <p>Art displays, science projects, and performances by our talented students throughout the day.</p>
+          </div>
+        </div>
+        <div class="av-item">
+          <div class="av-icon">🍔</div>
+          <div class="av-text">
+            <h4>Food & Refreshments</h4>
+            <p>Local food vendors, baked goods stall, lemonade stand, and a dedicated kids' snack zone.</p>
+          </div>
+        </div>
+        <div class="av-item">
+          <div class="av-icon">🎪</div>
+          <div class="av-text">
+            <h4>Games & Prizes</h4>
+            <p>Classic fairground games, raffle draws, and plenty of prizes for all ages.</p>
+          </div>
+        </div>
+        <div class="av-item">
+          <div class="av-icon">🌱</div>
+          <div class="av-text">
+            <h4>Community Stalls</h4>
+            <p>Local businesses and community organisations are welcome to set up stalls.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule" id="schedule">
+  <div class="container">
+    <div class="section-tag">Day Schedule</div>
+    <h2 class="section-title">What's Happening & When</h2>
+    <p class="section-sub">A full day of activities from morning to evening — there's something for everyone.</p>
+    <div class="schedule-grid">
+      <div class="time-block">
+        <span class="tb-icon">🌅</span>
+        <div class="tb-time">8:00 AM – 9:00 AM</div>
+        <div class="tb-title">Doors Open & Setup</div>
+        <div class="tb-desc">Early birds welcome! Volunteer teams set up booths and the grounds open for the first guests.</div>
+      </div>
+      <div class="time-block green">
+        <span class="tb-icon">🎤</span>
+        <div class="tb-time">9:00 AM – 9:30 AM</div>
+        <div class="tb-title">Opening Ceremony</div>
+        <div class="tb-desc">Welcome remarks from the Principal, student performances, and the official ribbon-cutting to kick off the fair.</div>
+      </div>
+      <div class="time-block">
+        <span class="tb-icon">🎠</span>
+        <div class="tb-time">9:30 AM – 12:00 PM</div>
+        <div class="tb-title">Morning Activities</div>
+        <div class="tb-desc">All booths open — games, food stalls, art showcase, science displays, and the kids' activity zone in full swing.</div>
+      </div>
+      <div class="time-block navy">
+        <span class="tb-icon">🍕</span>
+        <div class="tb-time">12:00 PM – 1:00 PM</div>
+        <div class="tb-title">Lunch Break</div>
+        <div class="tb-desc">Grab a bite from our food vendors! Live acoustic music playing in the courtyard during the lunch hour.</div>
+      </div>
+      <div class="time-block green">
+        <span class="tb-icon">🎭</span>
+        <div class="tb-time">1:00 PM – 3:00 PM</div>
+        <div class="tb-title">Afternoon Performances</div>
+        <div class="tb-desc">Student choir, drama club showcase, and a special guest performance on the main stage.</div>
+      </div>
+      <div class="time-block">
+        <span class="tb-icon">🏆</span>
+        <div class="tb-time">3:00 PM – 4:00 PM</div>
+        <div class="tb-title">Raffle Draw & Closing</div>
+        <div class="tb-desc">Grand raffle prize announcements, thank-you remarks, and a final farewell from our students. Must be present to win!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="activities" id="activities">
+  <div class="container">
+    <div class="section-tag">Activities</div>
+    <h2 class="section-title">Fun for Every Age</h2>
+    <p class="section-sub">From toddlers to grandparents — our Spring Fair has something for everyone in the family.</p>
+    <div class="act-grid">
+      <div class="act-card">
+        <span class="act-emoji">🎯</span>
+        <div class="act-name">Ring Toss</div>
+        <div class="act-desc">Classic carnival game with prizes for all skill levels</div>
+      </div>
+      <div class="act-card">
+        <span class="act-emoji">🎨</span>
+        <div class="act-name">Face Painting</div>
+        <div class="act-desc">Professional face painters for kids of all ages</div>
+      </div>
+      <div class="act-card">
+        <span class="act-emoji">🍰</span>
+        <div class="act-name">Bake Sale</div>
+        <div class="act-desc">Homemade treats baked by our school community</div>
+      </div>
+      <div class="act-card">
+        <span class="act-emoji">📚</span>
+        <div class="act-name">Book Swap</div>
+        <div class="act-desc">Bring a book, take a book — free for all students</div>
+      </div>
+      <div class="act-card">
+        <span class="act-emoji">🌱</span>
+        <div class="act-name">Plant Stall</div>
+        <div class="act-desc">Seedlings and potted plants grown by our garden club</div>
+      </div>
+      <div class="act-card">
+        <span class="act-emoji">🎵</span>
+        <div class="act-name">Live Music</div>
+        <div class="act-desc">Student bands and local performers all day long</div>
+      </div>
+      <div class="act-card">
+        <span class="act-emoji">🏃</span>
+        <div class="act-name">Obstacle Course</div>
+        <div class="act-desc">Inflatable obstacle course for kids aged 4–12</div>
+      </div>
+      <div class="act-card">
+        <span class="act-emoji">🎟️</span>
+        <div class="act-name">Grand Raffle</div>
+        <div class="act-desc">Amazing prizes — tickets $2 each or 3 for $5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER CTA -->
+<div class="volunteer-cta">
+  <h2>Want to Help Make It Happen?</h2>
+  <p>We need parent volunteers to make the Spring Fair a success. Sign up takes less than 2 minutes!</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4H8YzLF4EXyX5d7jf2A1wwYV3YSBv3Wsigwic2oTz8LFsFw/viewform" target="_blank" class="btn-primary" style="font-size:16px;padding:16px 40px;">Sign Up to Volunteer →</a>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-tag">Get in Touch</div>
+        <h2 class="section-title">Have a Question?</h2>
+        <p class="section-sub">We'd love to hear from you. Reach out with any questions about the event, volunteering, or stall bookings.</p>
+        <div class="contact-info">
+          <div class="ci-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-value">3120 Penn Ave, Pittsburgh, PA 15201</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">📧</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value">springfair@robertoclemente.edu</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-value">(412) 555-0182</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">🕗</div>
+            <div>
+              <div class="ci-label">Event Hours</div>
+              <div class="ci-value">Saturday, June 14 · 8:00 AM – 4:00 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Maria">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Santos">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="maria@email.com">
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select>
+              <option>General Enquiry</option>
+              <option>Volunteering</option>
+              <option>Stall Booking</option>
+              <option>Sponsorship</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Your message here..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitContact()">Send Message →</button>
+          <div class="form-success" id="formSuccess">
+            ✅ Thank you! We'll get back to you within 1–2 business days.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🌸 Spring Fair 2026</div>
+  <div class="footer-copy">© 2026 Roberto Clemente Elementary School · Pittsburgh, PA</div>
+</footer>
+
+<script>
+  function submitContact() {
+    const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+    let valid = true;
+    inputs.forEach(i => { if (!i.value.trim()) valid = false; });
+    if (!valid) { alert('Please fill in all fields before submitting.'); return; }
+    document.querySelector('.form-submit').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // Scroll-triggered fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.time-block, .act-card, .av-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
